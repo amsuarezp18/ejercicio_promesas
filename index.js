@@ -14,8 +14,13 @@ fetchPromiseList
                      })
                      .then(productsDetail => {
 
-                        var numberOfProducts = productsList.length;
+                        var numberOfProducts = productsList.length+1;
                         var arr = new Array(numberOfProducts).fill(0);
+                        
+                        // ACA DEBO SACAR LA INFO DEL DETALLE 
+                        productsDetail.forEach( element => console.log(element) );
+                      
+                        
                         
                         console.log("El nombre del producto más pedido es PEPITO y ha sido pedido X  veces.");    
                       });
