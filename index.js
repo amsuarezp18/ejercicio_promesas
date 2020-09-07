@@ -14,15 +14,28 @@ fetchPromiseList
                      })
                      .then(productsDetail => {
 
+                        // Creo un array vacio con la cantidad de productos que existen,
+                        // como los id comienza en 1 entonces es el tamaño + 1 
                         var numberOfProducts = productsList.length+1;
-                        var arr = new Array(numberOfProducts).fill(0);
+                        var array = new Array(numberOfProducts).fill(0);
                         
-                        // ACA DEBO SACAR LA INFO DEL DETALLE 
-                        productsDetail.forEach( element => console.log(element) );
-                      
-                        
-                        
-                        console.log("El nombre del producto más pedido es PEPITO y ha sido pedido X  veces.");    
+                        // Recorro todos los pedidos para extraer la cantidad.
+                        productsDetail.forEach( element => array[element.idproducto] += parseInt(element.cantidad) );
+
+                        // Valor para comparar
+                        var value = 0;
+                        // Posición del mayor
+                        var position = array[1];
+
+                        // Recorre el array para encontrar el mayor.
+                        for (var i = 1; i < array.length; i++) {
+                            if (array[i] > value) {
+                                value = array[i];
+                                position = i;
+                            }
+                        }
+                                    
+                        console.log("El nombre del producto más pedido es: " + productsList[position].nombreProducto + " y ha sido pedido " + value  + " veces.");    
                       });
 
           });
