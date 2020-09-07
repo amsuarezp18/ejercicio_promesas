@@ -34,8 +34,9 @@ fetchPromiseList
                                 position = i;
                             }
                         }
-                                    
-                        console.log("El nombre del producto más pedido es: " + productsList[position].nombreProducto + " y ha sido pedido " + value  + " veces.");    
+                        
+                        // Se debe restar una posición.
+                        console.log("El nombre del producto más pedido es: " + productsList[position-1].nombreProducto + " y ha sido pedido " + value  + " veces.");    
                       });
 
           });
